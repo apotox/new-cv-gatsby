@@ -1,0 +1,32 @@
+{
+    "posts":[
+        {
+            "path":"/hello/",
+            "title":"hello",
+            "content":"hello wolrd haha"
+        }
+    ],
+    "solutions":[
+        {
+            "path":"/hello/",
+            "title":"hello",
+            "content":"hello wolrd haha"
+        }
+    ],
+    "experiences":[
+        {
+            "path":"/hello/",
+            "title":"hello",
+            "year":"2017-2019",
+            "description":"hello wolrd haha"
+        }
+    ],
+    "writes":[
+        {
+            "path":"/hello/",
+            "title":"hello",
+            "description":"hello wolrd haha",
+            "url":""
+        }
+    ]
+}
