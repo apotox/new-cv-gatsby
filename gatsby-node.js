@@ -8,22 +8,38 @@
 const path = require('path')
 const data = require('./data.json')
 
-exports.createPages= ({actions}) => {
+exports.createPages= ({boundActionCreators}) => {
+
+    const { createPage } = boundActionCreators;
+
+    const componentPost = path.resolve('src/templates/post.js')
+    const componentExperience = path.resolve('src/templates/experience.js')
 
 
-    const {createPage} = actions
+    data.forEach(element => {
 
-    const component = path.resolve('src/templates/post.js')
+        switch(element.type){
+            case 'post':
+                    createPage({
+                        path:element.path,
+                        component:componentPost,
+                        context:element
+                    })
+                    break;
+            case 'experience':
+                    createPage({
+                        path:element.path,
+                        component:componentExperience,
+                        context:element
+                    })
+            break;
 
-    data.posts.forEach(element => {
-        createPage({
-            path:element.path,
-            component,
-            context:element
-        })
+            default :
+                    console.log("type unknwen")
+        }
+
+
     });
-
-    
 
 
 

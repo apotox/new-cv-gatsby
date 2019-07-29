@@ -4,6 +4,8 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../gstyle.css"
+import _ from 'lodash'
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -15,6 +17,7 @@ const IndexPage = () => (
           edges{
               node{
                   context{
+                      type
                       title
                       path
                   }
@@ -23,32 +26,30 @@ const IndexPage = () => (
         }
       }
     `}
-    render={data=>{
-      console.log("index data",data)
-      if(data && data.allSitePage.edges.length!=0){
+      render={data => {
 
-        return <ul className="my-ul">
-          <li><b>AAA</b></li>
+        if (!data || data.allSitePage.edges.length == 0) return "/"
+
+        let groups = _.groupBy(data.allSitePage.edges, edge => edge.node.context.type)
+
+        let fields = _.filter(_.keys(groups), k => k!="null")
+
+
+        return fields.map(field => <ul className="my-ul">
+          <li ><b>{field}</b></li>
           {
-            data.allSitePage.edges.map((ed,k)=>ed.node.context.title && <li key={k}><Link to={ed.node.context.path} >{ed.node.context.title}</Link></li>)
+            groups[field].map((ed, k) => ed.node.context.title && <li className={`li-${ ed.node.context.type}`} key={k}><Link to={ ed.node.context.path} ><h3>{ ed.node.context.title}</h3></Link></li>)
           }
-        </ul>
+        </ul>)
 
-
-      }else{
-        return "/"
-      }
-
-
-
-    }}
+      }}
     />
 
 
 
     {/* <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p> */}
-   
+
   </Layout>
 )
 

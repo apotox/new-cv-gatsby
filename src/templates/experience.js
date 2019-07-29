@@ -35,8 +35,6 @@ export const query = graphql`
                 node{
                     context{
                         title
-                        year
-                        description
                     }
                     
                 }
@@ -44,11 +42,6 @@ export const query = graphql`
         }
     }
 `
-/**
- *          "path":"/hello/",
-            "title":"hello",
-            "year":"2017-2019",
-            "description":"hello wolrd haha"
- */
+
 
 export default Experience
