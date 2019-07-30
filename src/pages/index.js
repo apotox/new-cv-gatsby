@@ -36,7 +36,7 @@ const IndexPage = () => (
 
 
         return fields.map(field => <ul className="my-ul">
-          <li ><b>{field}</b></li>
+          <li className={`li-title-${field}`}><b>{field}</b></li>
           {
             groups[field].map((ed, k) => ed.node.context.title && <li className={`li-${ ed.node.context.type}`} key={k}><Link to={ ed.node.context.path} ><h3>{ ed.node.context.title}</h3></Link></li>)
           }

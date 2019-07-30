@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Layout from "../components/layout"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 
 
@@ -24,6 +24,10 @@ class Post extends Component {
 
         return (<Layout>
             <h2>{element.title}</h2>
+
+            <p>{element.content}</p>
+
+            {element.source && <Link to={element.source} >open</Link>}
         </Layout>)
     }
 }
@@ -36,6 +40,7 @@ export const query = graphql`
                     context{
                         title
                         content
+                        source
                     }
                     
                 }

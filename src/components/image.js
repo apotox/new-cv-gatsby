@@ -1,32 +1,44 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import _ from 'lodash'
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+const Image = ({originalName,className}) => (
+  <StaticQuery
+   
+
+    query ={graphql`
+      query {
+        all:allFile{
+          images:edges{
+            node{
+              childImageSharp{
+                fluid {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
           }
         }
       }
-    }
-  `)
+    `}
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
+    render={data => {
 
+
+      
+      
+      let img = _.find(data.all.images,i=>_.get(i,"node.childImageSharp.fluid.originalName","") == originalName)
+
+
+      if(img){
+        return <Img  className={className} fluid={img.node.childImageSharp.fluid} />
+      }else {
+        return <span>not found!</span>
+      }
+    }}
+  />
+)
 export default Image

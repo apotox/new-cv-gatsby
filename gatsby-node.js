@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 const path = require('path')
-const data = require('./data.json')
+const data = require('./data.js')
 
 exports.createPages= ({boundActionCreators}) => {
 
