@@ -34,7 +34,12 @@ const IndexPage = () => (
         //if no data just render /
         if (!data || data.allSitePage.edges.length == 0) return "/"
 
-        let groups = _.groupBy(data.allSitePage.edges, edge => edge.node.context.type)
+
+        let edges = _.filter(data.allSitePage.edges,e=>e.node.context!=null)
+
+
+
+        let groups = _.groupBy(edges, edge => edge.node.context.type)
 
         let fields = _.filter(_.keys(groups), k => k != "null") //post,article,experince
 
