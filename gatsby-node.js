@@ -14,6 +14,7 @@ exports.createPages= ({boundActionCreators}) => {
 
     const componentPost = path.resolve('src/templates/post.js')
     const componentExperience = path.resolve('src/templates/experience.js')
+    const componentArticle = path.resolve('src/templates/article.js')
 
 
     data.forEach(element => {
@@ -30,6 +31,13 @@ exports.createPages= ({boundActionCreators}) => {
                     createPage({
                         path:element.path,
                         component:componentExperience,
+                        context:element
+                    })
+            break;
+            case 'article':
+                    createPage({
+                        path:element.path,
+                        component:componentArticle,
                         context:element
                     })
             break;

@@ -5,7 +5,7 @@
     margin: 0;
     position: relative;
     padding: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 65px;
    
 }
 
@@ -17,15 +17,17 @@
     background-color: #fff;
     position: absolute;
     left: -14px;
-    top: -24px;
+    top: -30px;
     font-size: 20px;
+    
 }
 
 .my-ul li {
     list-style: none;
     margin: 0;
     margin-bottom: 4px;
-  
+    display: flex;
+    
     border-radius: 7px;
     padding: 8px;
 }
@@ -37,9 +39,9 @@
 }
 
 .li-title-post{
-    background-color: #dc4195 !important;
+    /* background-color: #dc4195 !important;
     color: #fff;
-    border: none!important;
+    border: none!important; */
 }
 .animated-socials{
    
@@ -49,7 +51,7 @@
 
 }
 .animated-item-container{
-    cursor: pointer;
+   
     position: relative;
     width: 48px;
     margin-left: 4px;
@@ -88,6 +90,7 @@
     top:0;
     opacity: 0.1;
     animation: fire 3s infinite cubic-bezier(.36,1.11,.71,.13);
+    background-color: #171717;
 }
 
 
@@ -121,4 +124,90 @@
         top:-22px;
         opacity: 1;
     }
+}
+
+
+.post-image-container{
+    width: 100%;
+    text-align: center;
+}
+.post-content{
+    text-align: justify;
+}
+.profile{
+    display: flex;
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    justify-content: center;
+   
+}
+.profile-image-container{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.profile-image{
+    position: absolute;
+    top:-20px;
+    left:0; 
+    width: 120px;
+    opacity: 0.9;
+}
+
+.profile-image-container:hover{
+    animation: bergg  0.3s ease-in-out forwards;
+}
+
+@keyframes bergg{
+    from {
+        
+        left:0; 
+    }
+    to {
+        transform: rotate(-16deg) ;
+
+        left:-16px;
+    }
+}
+
+.profile-right{
+    margin-left: -38px;
+    padding: 8px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    /* border-left: 1px solid #ccc; */
+    justify-content: center;
+    box-shadow: -2px 0px 0px 0px #171717;
+}
+
+.profile p.bio{
+    font-size: 12px;
+    margin: 0;
+    line-height: 12px;
+    max-width: 300px;
+    text-align: center;
+    color: #888888;
+}
+
+.exp-year{
+    position: relative;
+    right: 0;
+    padding: 4px;
+    /* background-color: #696969;
+    color: #fff;
+    border-right: 4px solid #FF9800; */
+    margin-right: 5px;
+}
+
+.small-socila-icon{
+    width: 48px;
+    height: 48px;
 }

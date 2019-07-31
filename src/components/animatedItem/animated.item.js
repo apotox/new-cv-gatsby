@@ -9,7 +9,7 @@ export default class AnimatedItem extends Component {
         
         return (
             <div className="animated-item-container">
-                <Image  originalName={this.props.originalName} className="animated-item-image"/>
+                <Image  originalName={this.props.originalName} className={`animated-item-image ${this.props.className ? this.props.className : ""}`}/>
             </div>
         )
     }

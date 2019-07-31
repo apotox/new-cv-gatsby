@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-
 import Layout from "../components/layout"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-
-
-
+import looking from './looking.svg'
 
 class Post extends Component {
 
@@ -25,9 +22,11 @@ class Post extends Component {
         return (<Layout>
             <h2>{element.title}</h2>
 
-            <p>{element.content}</p>
+            <div className="post-image-container">
+                <img src={looking} />
+                </div>
 
-            {element.source && <Link to={element.source} >open</Link>}
+            <p className="post-content">{element.content}</p>
         </Layout>)
     }
 }
@@ -40,7 +39,7 @@ export const query = graphql`
                     context{
                         title
                         content
-                        source
+                        image
                     }
                     
                 }

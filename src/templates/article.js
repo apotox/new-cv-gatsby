@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
 import Layout from "../components/layout"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 
 
 
 
-class Experience extends Component {
+class Article extends Component {
 
     constructor(props){
 
@@ -24,8 +24,7 @@ class Experience extends Component {
 
         return (<Layout>
             <h2>{element.title}</h2>
-             
-            <p>{element.description}</p>
+            <p>{element.content}</p>
             {element.source && <a href={element.source}>open</a>}
         </Layout>)
     }
@@ -38,7 +37,7 @@ export const query = graphql`
                 node{
                     context{
                         title
-                        description
+                        content
                         source
                     }
                     
@@ -49,4 +48,4 @@ export const query = graphql`
 `
 
 
-export default Experience
+export default Article
