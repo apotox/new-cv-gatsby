@@ -5,6 +5,7 @@ import _ from 'lodash'
 
 
 const Image = ({originalName,className}) => (
+  //list all images with sharpfluid property
   <StaticQuery
    
 
@@ -26,17 +27,11 @@ const Image = ({originalName,className}) => (
     `}
 
     render={data => {
-
-
-      
-      
       let img = _.find(data.all.images,i=>_.get(i,"node.childImageSharp.fluid.originalName","") == originalName)
-
-
       if(img){
         return <Img  className={className} fluid={img.node.childImageSharp.fluid} />
       }else {
-        return <span>not found!</span>
+        return <span className="image-not-found">not found!</span>
       }
     }}
   />

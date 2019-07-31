@@ -25,7 +25,8 @@ class Experience extends Component {
         return (<Layout>
             <h2>{element.title}</h2>
              
-            <p>{element.description}</p>
+            <p>{element.content}</p>
+
             {element.source && <a href={element.source}>open</a>}
         </Layout>)
     }
@@ -38,7 +39,7 @@ export const query = graphql`
                 node{
                     context{
                         title
-                        description
+                        content
                         source
                     }
                     

@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import Layout from "../components/layout"
 import { useStaticQuery, graphql, Link } from "gatsby"
-
+import Image from '../components/image';
+const ReactMarkdown = require('react-markdown')
 
 
 
@@ -24,7 +25,13 @@ class Article extends Component {
 
         return (<Layout>
             <h2>{element.title}</h2>
-            <p>{element.content}</p>
+
+            <div className="post-image-container" style={{maxWidth:320}}>
+                <Image originalName="project-struct.png" />
+            </div>
+
+            <div className="post-content" ><ReactMarkdown source={element.content} /></div>
+
             {element.source && <a href={element.source}>open</a>}
         </Layout>)
     }

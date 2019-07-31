@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => (
       </h1>
 
       <div className="animated-socials">
-        <a role="button" href="https://twitter.com/saphidev"><AnimatedItem originalName="twitter.png"/></a>
+        <a href="https://twitter.com/saphidev"><AnimatedItem originalName="twitter.png"/></a>
         <a href="https://twitter.com/saphidev"><AnimatedItem originalName="github.png"/></a>
       </div>
 
